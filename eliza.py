@@ -51,13 +51,13 @@ class Eliza:
                 elif tag == 'quit':
                     self.quits.append(content)
                 elif tag == 'pre':
-                    parts = content.split(' ')
+                    parts = content.split('%%')
                     self.pres[parts[0]] = parts[1:]
                 elif tag == 'post':
-                    parts = content.split(' ')
+                    parts = content.split('%%')
                     self.posts[parts[0]] = parts[1:]
                 elif tag == 'synon':
-                    parts = content.split(' ')
+                    parts = content.split('%%')
                     self.synons[parts[0]] = parts
                 elif tag == 'key':
                     parts = content.split(' ')
@@ -228,7 +228,7 @@ class Eliza:
 
 def main():
     eliza = Eliza()
-    eliza.load('doctor.txt')
+    eliza.load('doctor_de2.txt')
     eliza.run()
 
 if __name__ == '__main__':
