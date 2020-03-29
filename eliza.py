@@ -2,6 +2,8 @@ import logging
 import random
 import re
 from collections import namedtuple
+from EmotionDynamics import EmotionalAgent
+import threading
 
 # Fix Python2/Python3 incompatibility
 try: input = raw_input
@@ -35,6 +37,8 @@ class Eliza:
         self.synons = {}
         self.keys = {}
         self.memory = []
+        #Instance of EmotionalAgent
+        self.wasabi = EmotionalAgent()
 
     def load(self, path):
         key = None
@@ -202,9 +206,17 @@ class Eliza:
             else:
                 output = self._next_reasmb(self.keys['xnone'].decomps[0])
                 log.debug('Output from xnone: %s', output)
-        #random emotion selection
-        emotionList = ["gluecklich", "traurig", "wuetend", "ausgeglichen"]
-        return " ".join(output).replace("emotionDynamicsPlaceholder", random.choice(emotionList))
+        #random emotion selection for task 2
+        #emotionList = ["gluecklich", "traurig", "wuetend", "ausgeglichen"]
+        output = " ".join(output)
+        #emotion gets an impulse
+        if "emoimpulsePlaceholder" in output:
+            self.wasabi.emoimpulse(float(output[output.find("emoimpulsePlaceholder")+22:]))
+            self.wasabi.calculate_emotions()
+            output = output[:output.find("emoimpulsePlaceholder")]
+        #user asks for emotion
+        output = output.replace("emotionDynamicsPlaceholder", self.wasabi.get_emotion())
+        return output
 
     def initial(self):
         return random.choice(self.initials)
@@ -229,6 +241,11 @@ class Eliza:
 
 def main():
     eliza = Eliza()
+    #new Thread for emotion changes over time e.g. getting bored
+    t = threading.Thread(target=eliza.wasabi.calculate_emotions_continuously)
+    t.daemon = True
+    t.start()
+
     eliza.load('doctor_de.txt')
     eliza.run()
 

@@ -61,7 +61,7 @@ synon: glaube%%fühle%%denke%%wünsche
 synon: Familie%%Mutter%%Mama%%Vater%%Papa%%Schwester%%Bruder%%Ehefrau%%Kinder%%Kind
 synon: wünsche%%will%%brauche
 synon: traurig%%unglücklich%%depressiv%%krank
-synon: glücklich%%froh%%erfreut%%besser
+synon: glücklich%%froh%%erfreut
 synon: kann%%kann
 synon: alle%%jeder%%keiner%%niemand
 synon: sein%%bin%%ist%%sind%%war
@@ -213,15 +213,15 @@ key: ich
     reasmb: Was würde (3) für Sie bedeuten ?
     reasmb: Was hat das Wollen (3) mit dieser Diskussion zu tun ?
   decomp: * Ich bin * @traurig *
-    reasmb: Es tut mir leid, zu hören, dass Sie (3) sind.
-    reasmb: Glauben Sie, dass es Ihnen hilft, hierher zu kommen, um nicht (3) zu sein?
-    reasmb: Ich bin sicher, dass es nicht angenehm ist, (3) zu sein.
-    reasmb: Können Sie erklären, was Sie dazu gebracht hat, (3) zu sein?
+    reasmb: Es tut mir leid, zu hören, dass Sie (3) sind. emoimpulsePlaceholder -10
+    reasmb: Glauben Sie, dass es Ihnen hilft, hierher zu kommen, um nicht (3) zu sein? emoimpulsePlaceholder -10
+    reasmb: Ich bin sicher, dass es nicht angenehm ist, (3) zu sein. emoimpulsePlaceholder -10
+    reasmb: Können Sie erklären, was Sie dazu gebracht hat, (3) zu sein? emoimpulsePlaceholder -10
   decomp: * Ich bin * @glücklich *
-    reasmb: Wie habe ich Ihnen geholfen, (3) zu werden ?
-    reasmb: Hat Ihre Behandlung Sie (3) gemacht?
-    reasmb: Was macht Sie gerade jetzt (3) ?
-    reasmb: Können Sie erklären, warum Sie plötzlich (3) sind?
+    reasmb: Wie habe ich Ihnen geholfen, (3) zu werden ? emoimpulsePlaceholder 10
+    reasmb: Hat Ihre Behandlung Sie (3) gemacht?  emoimpulsePlaceholder 10
+    reasmb: Was macht Sie gerade jetzt (3) ? emoimpulsePlaceholder 10
+    reasmb: Können Sie erklären, warum Sie plötzlich (3) sind? emoimpulsePlaceholder 10
   decomp: * Ich war*
     reasmb: goto war
   decomp: * Ich @glaube * ich *
@@ -282,13 +282,13 @@ key: du
     reasmb: Was fühlen Sie jetzt?
 key: ja
   decomp: *
-    reasmb: Sie scheinen recht positiv zu sein.
+    reasmb: Sie scheinen recht positiv zu sein. emoimpulsePlaceholder 30
     reasmb: Sie sind sich sicher.
     reasmb: Ich verstehe.
 key: nein
   decomp: *
-    reasmb: Sagen Sie nein, nur um negativ zu sein?
-    reasmb: Sie sind ein bisschen negativ.
+    reasmb: Sagen Sie nein, nur um negativ zu sein? emoimpulsePlaceholder -30
+    reasmb: Sie sind ein bisschen negativ. emoimpulsePlaceholder -30
     reasmb: Warum nicht?
     reasmb: Warum 'nein'?
 key: mein 2
@@ -303,12 +303,12 @@ key: mein 2
     reasmb: Ihre (3) ?
     reasmb: Was fällt Ihnen noch ein, wenn Sie an Ihre (3) denken?
   decomp: * meine *
-     reasmb: Ihre (2) ?
+    reasmb: Ihre (2) ?
     reasmb: Warum sagen Sie Ihr (2) ?
     reasmb: Deutet das auf etwas anderes hin, das Ihnen gehört?
     reasmb: Ist es wichtig, dass Ihr (2) ?
 key: kann
-  decomp: * du kannst*
+  decomp: * du kannst *
    reasmb: Sie glauben, dass ich es kann (2), nicht wahr?
     reasmb: goto was
     reasmb: Sie wollen, dass ich in der Lage bin, (2) .
