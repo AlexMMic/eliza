@@ -202,8 +202,9 @@ class Eliza:
             else:
                 output = self._next_reasmb(self.keys['xnone'].decomps[0])
                 log.debug('Output from xnone: %s', output)
-
-        return " ".join(output)
+        #random emotion selection
+        emotionList = ["gluecklich", "traurig", "wuetend", "ausgeglichen"]
+        return " ".join(output).replace("emotionDynamicsPlaceholder", random.choice(emotionList))
 
     def initial(self):
         return random.choice(self.initials)
@@ -228,7 +229,7 @@ class Eliza:
 
 def main():
     eliza = Eliza()
-    eliza.load('doctor_de2.txt')
+    eliza.load('doctor_de.txt')
     eliza.run()
 
 if __name__ == '__main__':
